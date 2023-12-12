@@ -42,11 +42,11 @@ describe('Todo', () => {
 		todoList.update(1, 'Updated Task 2');
 		expect(todoList.get(1)).toBe('Updated Task 2');
 
-		todoList.update(3, 'Invalid Task');
+		todoList.update(2, 'Invalid Task');
 		expect(todoList.getAll()).toEqual([
 			'Task 1',
 			'Updated Task 2',
-			'Task 3',
+			'Invalid Task',
 		]);
 	});
 

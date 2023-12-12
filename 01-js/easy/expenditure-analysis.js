@@ -14,7 +14,23 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let out=[] //output list of objects
+
+  transactions.forEach(element => {
+    let cat=element.category;
+    let price=element.price;
+
+    let existingCat=out.find(outCat=>outCat.category==cat) //find method for checking if the category already exists
+
+    if(existingCat)
+      existingCat.totalSpent+=price;
+    else
+    out.push({"category":cat,"totalSpent":price})
+  });
+ return out;
 }
 
 module.exports = calculateTotalSpentByCategory;
+
+
+// {food:50,clothing:20,food:40}
