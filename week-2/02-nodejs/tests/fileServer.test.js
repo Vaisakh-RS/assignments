@@ -65,7 +65,7 @@ describe('API Endpoints', () => {
     test('should serve the requested file', async () => {
       const options = {
         method: 'GET',
-        path: '/file/test-file.txt'
+        path: '/files/test-file.txt'
       };
       const response = await sendRequest(options);
 

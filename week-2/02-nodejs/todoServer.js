@@ -43,7 +43,68 @@
   const bodyParser = require('body-parser');
   
   const app = express();
+  const PORT=3000;
   
   app.use(bodyParser.json());
+
+ 
+  let todos=[];
+
+  app.get("/todos",(req,res)=>
+  {
+    res.status(200).json(todos)
+  });
+
+  app.get("/todos/:id",(req,res)=>{
+    const todo=todos.find(t=>t.id==parseInt(req.params.id));
+    if(!todo)
+      res.status(404).send("Item cannot be found")
+    res.status(200).json(todo)
+  });
+
+  app.post("/todos",(req,res)=>{
+    const newTodo={
+      id:Math.floor(Math.random()*1000),
+      title:req.body.title,   //req.query.title can also be used
+      description:req.body.description
+    }
+    todos.push(newTodo)
+    res.status(201).json(newTodo)
+
+  });
+
+  app.put("/todos/:id",(req,res)=>{
+    const todoIndex=todos.find(t=>t.id==parseInt(req.params.id));
+    if(todoIndex==-1)
+    {
+      res.sendStatus(404);
+    }
+    else{
+      todos[todoIndex].title=req.body.title;  
+      todos[todoIndex].description=req.body.description
+      res.json(todos[todoIndex])
+      res.sendStatus(200);
+
+    }
+  });
+
+  app.delete("/todos/:id",(req,res)=>{
+    const todoIndex=todos.find(t=>t.id==parseInt(req.params.id));
+    if(todoIndex==-1)
+    {
+      res.sendStatus(404);
+    }
+    else
+    {
+      todos.splice(todoIndex,1);
+      res.sendStatus(200);
+
+    }
+  })
+
+
   
+  app.listen(PORT,()=>{
+    console.log("App running")
+  })
   module.exports = app;
