@@ -2,7 +2,7 @@ const { application } = require('express');
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://vaisakh:mbPG2SXYrv0WcUH8@cluster0.cbramrs.mongodb.net/')
+mongoose.connect(url)
 .catch(err=>console.log(err));
 mongoose.connection.on('connected',()=>console.log("connected"));
 
