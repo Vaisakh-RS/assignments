@@ -4,6 +4,8 @@ export default function Form()
         <div>
         <input type="text" placeholder="Name" />
         <input type="text" placeholder="Desigination" />
+        <button>Submit</button>
+        <button>Cancel</button>
     </div>
     )
    
