@@ -81,7 +81,7 @@ app.get('/users/courses', (req, res) => {
 });
 
 app.post('/users/courses/:courseId', (req, res) => {
-
+    
 });
 
 app.get('/users/purchasedCourses', (req, res) => {
