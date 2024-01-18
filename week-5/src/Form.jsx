@@ -7,13 +7,13 @@ export default function Form()
     const [interest,setInterest]=useState();
 
     
-       
+       //for local storage
 
-    useEffect(()=>{
-            localStorage.setItem("name",JSON.stringify(name))
-            localStorage.setItem("desigination",JSON.stringify(desigination))
-            localStorage.setItem("iterest",JSON.stringify(interest))
-        },[name,desigination,interest])
+    // useEffect(()=>{
+    //         localStorage.setItem("name",JSON.stringify(name))
+    //         localStorage.setItem("desigination",JSON.stringify(desigination))
+    //         localStorage.setItem("iterest",JSON.stringify(interest))
+    //     },[name,desigination,interest])
         
     
 
